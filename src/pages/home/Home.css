@@ -1,0 +1,9 @@
+/* Container for the recipes */
+.recipe-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Exactly 4 items per row */
+    gap: 30px; /* Space between cards */
+    justify-content: center;
+    align-items: start;
+    padding: 20px;
+}

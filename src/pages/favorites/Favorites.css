@@ -1,0 +1,73 @@
+/* Wrapper for the favorites section */
+.favorites-wrapper {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title Styling */
+.favorites-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Favorites Container (Horizontal Layout) */
+.favorites-container {
+    display: flex;
+    gap: 16px; /* Space between items */
+    overflow-x: auto; /* Horizontal scrolling */
+    padding-bottom: 10px;
+    scrollbar-width: thin; /* Firefox scrollbar */
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    scroll-behavior: smooth;
+}
+
+/* Hide Scrollbar for Chrome, Edge, and Safari */
+.favorites-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.favorites-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.favorites-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+/* Recipe Card Adjustments */
+.favorites-container .recipe-card {
+    min-width: 200px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.favorites-container .recipe-card:hover {
+    transform: scale(1.05);
+}
+
+/* Empty Favorites Message */
+.favorites-empty {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .favorites-container {
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .favorites-container .recipe-card {
+        min-width: 160px;
+    }
+
+    .favorites-title {
+        font-size: 1.5rem;
+    }
+}

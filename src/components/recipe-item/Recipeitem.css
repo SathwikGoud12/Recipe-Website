@@ -1,0 +1,189 @@
+/* Recipe Card Styling */
+.recipe-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 8px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    max-width: 200px;
+    width: 100%;
+}
+
+.recipe-card:hover {
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Recipe Image */
+.recipe-image {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 6px; 
+}
+
+.recipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.recipe-image img:hover {
+    transform: scale(1.08);
+}
+
+/* Recipe Info */
+/* Recipe Title Styling */
+.recipe-title {
+    font-size: 0.9rem; /* Reduced font size */
+    font-weight: bold;
+    color: #333;
+    margin: 2px 0;
+    text-align: center;
+    max-width: 90%;
+    white-space: normal; /* Allow text to wrap */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2; /* Adjusted line height for better readability */
+    max-height: 2.4rem; /* Ensures text doesn't overflow too much */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits to 2 lines */
+    -webkit-box-orient: vertical;
+}
+
+/* Ensure container adjusts properly */
+.recipe-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px; /* Minimal spacing */
+    text-align: center;
+}
+
+.recipe-title:hover {
+    color: #ff9800;
+}
+
+.recipe-publisher {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Button Styling */
+.recipe-button {
+    display: inline-block;
+    background: black;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-top: 6px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.recipe-button:hover {
+    background: #ff9800;
+    transform: scale(1.05);
+}
+
+/* Grid Layout for Main Recipe Items */
+.recipe-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    justify-content: center;
+    padding: 12px;
+}
+
+/* ✅ Favorites Container - Items Display Horizontally */
+.favorites-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for Horizontal Scrolling */
+.favorites-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.favorites-container::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 4px;
+}
+
+.favorites-container::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Ensure Favorite Recipe Cards Fit Well */
+.favorites-container .recipe-card {
+    flex: 0 0 auto;
+    max-width: 200px;
+    width: 100%;
+}
+
+/* ✅ Responsive Design (Better Scaling) */
+@media (max-width: 1024px) {
+    .recipe-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .recipe-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+    
+    .recipe-title {
+        font-size: 0.9rem;
+    }
+    
+    .recipe-button {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+
+    /* ✅ Favorites Adjustments for Mobile */
+    .favorites-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .favorites-container .recipe-card {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .recipe-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .recipe-title {
+        font-size: 0.85rem;
+    }
+
+    .recipe-button {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+
+    .favorites-container .recipe-card {
+        max-width: 160px;
+    }
+}
